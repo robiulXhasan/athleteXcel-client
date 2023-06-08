@@ -1,19 +1,33 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-
 import { FcGoogle } from "react-icons/fc";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const SignIn = () => {
+  const { LoginUser, googleLogin } = useAuth();
   const [visible, setVisible] = useState(false);
-
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    setError("");
+    // handle login with email and password
+    LoginUser(data.email, data.password)
+      .then((result) => {
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
   const handleShowPassword = () => {
     setVisible(!visible);
   };
@@ -76,6 +90,7 @@ const SignIn = () => {
                 </a>
               </label>
             </div>
+            <p className="text-red-600">{error}</p>
             <div className="form-control">
               <input
                 type="submit"

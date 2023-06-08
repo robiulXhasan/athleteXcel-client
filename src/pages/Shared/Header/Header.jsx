@@ -1,19 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 const Header = () => {
+  const { user, logOut } = useAuth();
+ 
   const navItems = (
     <>
       <li>
-        <Link to="/">HOME</Link>
+        <NavLink to="/">HOME</NavLink>
       </li>
       <li>
-        <Link to="/instructors">INSTRUCTORS</Link>
+        <NavLink to="/instructors">INSTRUCTORS</NavLink>
       </li>
       <li>
-        <Link to="/classes">CLASSES </Link>
+        <NavLink to="/classes">CLASSES </NavLink>
       </li>
       <li>
-        <Link to="">DASHBOARD</Link>
+        <NavLink to="/dashboard">DASHBOARD</NavLink>
       </li>
     </>
   );
@@ -39,7 +42,7 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content text-black mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm font-bold dropdown-content  mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navItems}
           </ul>
@@ -53,15 +56,27 @@ const Header = () => {
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navItems}</ul>
+        <ul className="menu menu-horizontal font-bold  px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        <Link
-          className="btn bg-[#0F7BF2] text-white hover:text-black border border-[#0F7BF2] hover:border-[#0F7BF2]"
-          to="/signin"
-        >
-          SIGN IN
-        </Link>
+        {user ? (
+          <>
+            <Link
+              onClick={logOut}
+              className="btn bg-[#0F7BF2] text-white hover:text-black border border-[#0F7BF2] hover:border-[#0F7BF2]"
+              to="/signin"
+            >
+              SIGN OUT
+            </Link>
+          </>
+        ) : (
+          <Link
+            className="btn bg-[#0F7BF2] text-white hover:text-black border border-[#0F7BF2] hover:border-[#0F7BF2]"
+            to="/signin"
+          >
+            SIGN IN
+          </Link>
+        )}
       </div>
     </div>
   );

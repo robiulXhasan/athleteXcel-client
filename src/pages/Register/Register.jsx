@@ -1,12 +1,17 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const [visible, setVisible] = useState(false);
   const [visibleC, setVisibleC] = useState(false);
+  const { createUser, profileUpdate, logOut } = useAuth();
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const {
     register,
@@ -14,7 +19,37 @@ const Register = () => {
     handleSubmit,
     getValues,
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    setError("");
+    // create user
+    createUser(data.email, data.password)
+      .then((result) => {
+        // update user name and photoURl
+        profileUpdate(data.name, data.photoURL)
+          .then(() => {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Successfully Register",
+              showConfirmButton: false,
+              timer: 1000,
+            });
+            logOut()
+              .then(() => {
+                navigate("/signin");
+              })
+              .catch((error) => {
+                console.log(error.message);
+              });
+          })
+          .catch((error) => {
+            setError(error.message);
+          });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
   const handleShowPassword = () => {
     setVisible(!visible);
   };
@@ -34,6 +69,22 @@ const Register = () => {
         <div className="card flex-shrink-0 w-full max-w-md shadow-2xl bg-[#DFECFF]">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <h2 className="text-center font-semibold text-3xl">Sign Up</h2>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter your name"
+                className="input input-bordered"
+                {...register("name", { required: true })}
+              />
+              {errors.name?.type === "required" && (
+                <p className="text-red-600" role="alert">
+                  Name is required
+                </p>
+              )}
+            </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -62,7 +113,7 @@ const Register = () => {
                   required: true,
                   minLength: 6,
                   maxLength: 20,
-                  pattern: /^[A-Za-z]+$/i,
+                  pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{6}/,
                 })}
               />
               <button
@@ -91,9 +142,15 @@ const Register = () => {
                   Password should be 6 character long!
                 </p>
               )}
+              {errors.password?.type === "maxLength" && (
+                <p className="text-red-600 text-start text-sm" role="alert">
+                  Password must be less than 20 character long
+                </p>
+              )}
               {errors.password?.type === "pattern" && (
-                <p className="text-red-600" role="alert">
-                  Password should have one uppercase one lowercase and a special character!
+                <p className="text-red-600 text-start text-sm" role="alert">
+                  Password must have one lower case, one uppercase, one number and one special
+                  character
                 </p>
               )}
             </div>
@@ -142,6 +199,7 @@ const Register = () => {
                 </p>
               )}
             </div>
+            <p className="text-red-600">{error}</p>
             <div className="form-control mt-5">
               <input
                 type="submit"
@@ -155,7 +213,7 @@ const Register = () => {
                 Sign In
               </Link>
             </p>
-            <p className="text-red-600"></p>
+
             <div className="divider">Or</div>
             <div className="flex justify-center items-center gap-2 btn btn-outline">
               <FcGoogle />

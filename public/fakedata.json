@@ -3,7 +3,7 @@
     "_id": 1,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Basketball Training",
-    "available_seats": 15,
+    "available_seats": 5,
     "price": 100,
     "instructor": {
       "instructor_img": "https://img.freepik.com/free-photo/full-shot-kid-man-playing-together_23-2149235661.jpg?size=626&ext=jpg&ga=GA1.1.1346969389.1672858153&semt=country_rows_v1",

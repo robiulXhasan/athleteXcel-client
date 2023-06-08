@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.section-heading {
+    -webkit-text-stroke: 1px rgb(243, 235, 243);
+    font-size: 5rem;
+}

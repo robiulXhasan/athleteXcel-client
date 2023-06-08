@@ -5,6 +5,7 @@ import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import SocialSignIn from "../Shared/SocialSignIn/SocialSignIn";
 
 const Register = () => {
   const [visible, setVisible] = useState(false);
@@ -213,12 +214,7 @@ const Register = () => {
                 Sign In
               </Link>
             </p>
-
-            <div className="divider">Or</div>
-            <div className="flex justify-center items-center gap-2 btn btn-outline">
-              <FcGoogle />
-              Sign In with Google
-            </div>
+            <SocialSignIn setError={setError} />
           </form>
         </div>
       </div>

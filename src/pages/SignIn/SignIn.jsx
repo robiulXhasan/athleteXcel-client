@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FcGoogle } from "react-icons/fc";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import SocialSignIn from "../Shared/SocialSignIn/SocialSignIn";
 
 const SignIn = () => {
-  const { LoginUser, googleLogin } = useAuth();
+  const { LoginUser } = useAuth();
   const [visible, setVisible] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -104,11 +104,7 @@ const SignIn = () => {
                 Sign Up
               </Link>
             </p>
-            <div className="divider">Or</div>
-            <div className="flex justify-center items-center gap-2 btn btn-outline">
-              <FcGoogle />
-              Sign In with Google
-            </div>
+            <SocialSignIn setError={setError}></SocialSignIn>
           </form>
         </div>
       </div>

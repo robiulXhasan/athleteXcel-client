@@ -19,6 +19,7 @@ const Register = () => {
     formState: { errors },
     handleSubmit,
     getValues,
+    reset,
   } = useForm();
   const onSubmit = (data) => {
     setError("");
@@ -28,19 +29,33 @@ const Register = () => {
         // update user name and photoURl
         profileUpdate(data.name, data.photoURL)
           .then(() => {
-            Swal.fire({
-              position: "top-end",
-              icon: "success",
-              title: "Successfully Register",
-              showConfirmButton: false,
-              timer: 1000,
-            });
-            logOut()
-              .then(() => {
-                navigate("/signin");
-              })
-              .catch((error) => {
-                console.log(error.message);
+            const savedUser = { name: data.name, email: data.email };
+            fetch("http://localhost:5000/users", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(savedUser),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                if (data.insertedId) {
+                  reset();
+                  Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Successfully Register",
+                    showConfirmButton: false,
+                    timer: 1000,
+                  });
+                  logOut()
+                    .then(() => {
+                      navigate("/signin");
+                    })
+                    .catch((error) => {
+                      console.log(error.message);
+                    });
+                }
               });
           })
           .catch((error) => {

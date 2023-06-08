@@ -1,6 +1,5 @@
 [
   {
-    "_id": 1,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Basketball Training",
     "available_seats": 5,
@@ -14,7 +13,6 @@
     "num_students": 10
   },
   {
-    "_id": 2,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Soccer Camp",
     "available_seats": 20,
@@ -28,7 +26,6 @@
     "num_students": 12
   },
   {
-    "_id": 3,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Tennis Lessons",
     "available_seats": 10,
@@ -42,7 +39,6 @@
     "num_students": 8
   },
   {
-    "_id": 4,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Gymnastics Workshop",
     "available_seats": 12,
@@ -56,7 +52,6 @@
     "num_students": 15
   },
   {
-    "_id": 5,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Swimming Lessons",
     "available_seats": 8,
@@ -70,7 +65,6 @@
     "num_students": 10
   },
   {
-    "_id": 6,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Yoga Retreat",
     "available_seats": 15,
@@ -84,7 +78,6 @@
     "num_students": 20
   },
   {
-    "_id": 7,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Karate Class",
     "available_seats": 10,
@@ -98,7 +91,6 @@
     "num_students": 12
   },
   {
-    "_id": 8,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Volleyball Training",
     "available_seats": 18,
@@ -112,7 +104,6 @@
     "num_students": 16
   },
   {
-    "_id": 9,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Boxing Workshop",
     "available_seats": 10,
@@ -126,7 +117,6 @@
     "num_students": 8
   },
   {
-    "_id": 10,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Golf Lessons",
     "available_seats": 12,

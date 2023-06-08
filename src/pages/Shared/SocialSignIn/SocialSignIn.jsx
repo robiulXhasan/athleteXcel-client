@@ -10,8 +10,22 @@ const SocialSignIn = ({ setError }) => {
   const { googleLogin } = useAuth();
   const handleGoogleSignIn = () => {
     googleLogin()
-      .then(() => {
-        navigate(from, { replace: true });
+      .then((result) => {
+        const loggedUser = result.user;
+        const user = { name: loggedUser.displayName, email: loggedUser.email };
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              navigate(from, { replace: true });
+            }
+          });
       })
       .catch((error) => {
         setError(error.message);

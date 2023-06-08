@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaVolleyballBall } from "react-icons/fa";
 
 const ClassCard = ({ data }) => {
   const { image, name, available_seats, price, instructor } = data;
+  //TODO: update the user statue from backend
+  const isAdmin = false;
+  const isInstructor = false;
+
   return (
     <div
       className={`card rounded-none border border-purple-500 relative ${
@@ -22,7 +26,12 @@ const ClassCard = ({ data }) => {
         </div>
       </div>
       <div className="card-actions">
-        <button className="btn btn-neutral w-full  rounded-none ">Book</button>
+        <button
+          disabled={available_seats == 0 || isAdmin || isInstructor}
+          className="btn btn-neutral w-full  rounded-none "
+        >
+          Book
+        </button>
       </div>
     </div>
   );

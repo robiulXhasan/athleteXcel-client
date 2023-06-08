@@ -5,8 +5,8 @@ import logo from "../../../assets/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="  bg-purple-200 text-base-content  py-10 ">
-      <div className=" footer px-10 md:px-[8%] bg-purple-200 text-base-content">
+    <footer className="  bg-[#DFECFF] text-base-content  py-10 ">
+      <div className=" footer px-10 md:px-[8%] bg-[#DFECFF] text-base-content">
         <div>
           <Link to="/" className="flex items-center  gap-2">
             <img className="w-16" src={logo} alt="" />

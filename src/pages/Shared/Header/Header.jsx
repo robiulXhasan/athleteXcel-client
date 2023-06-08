@@ -56,7 +56,10 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        <Link className="btn bg-[#E39FF6] font-bold" to="/login">
+        <Link
+          className="btn bg-[#0F7BF2] text-white hover:text-black border border-[#0F7BF2] hover:border-[#0F7BF2]"
+          to="/signin"
+        >
           SIGN IN
         </Link>
       </div>

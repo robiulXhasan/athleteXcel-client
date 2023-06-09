@@ -15,9 +15,13 @@ const Header = () => {
       <li>
         <NavLink to="/classes">CLASSES </NavLink>
       </li>
-      <li>
-        <NavLink to="/dashboard">DASHBOARD</NavLink>
-      </li>
+      {user ? (
+        <li>
+          <NavLink to="/dashboard">DASHBOARD</NavLink>
+        </li>
+      ) : (
+        <></>
+      )}
     </>
   );
   return (

@@ -1,0 +1,54 @@
+import React from "react";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAuth from "../../../hooks/useAuth";
+import { useQuery } from "@tanstack/react-query";
+import SectionHeading from "../../Shared/SectionHeading";
+
+const MyClasses = () => {
+  const { user } = useAuth();
+  const [axiosSecure] = useAxiosSecure();
+  const { data: myClasses = [], refetch } = useQuery({
+    queryKey: ["myClasses", user?.email],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/classes/myclasses/${user?.email}`);
+      console.log(res);
+      return res.data;
+    },
+  });
+
+  return (
+    <div className="w-11/12">
+      <SectionHeading subHeading="Classes" heading="My Classes"></SectionHeading>
+      <div className="overflow-x-auto bg-[#DFECFF] p-5 rounded-lg shadow-xl">
+        <table className="table table-md table-pin-rows table-pin-cols">
+          <thead>
+            <tr className="bg-primary text-white">
+              <td></td>
+              <td>Class Name</td>
+              <td>Enrolled Students</td>
+              <td>Status</td>
+              <td>Feedback</td>
+              <td>Action</td>
+            </tr>
+          </thead>
+          <tbody>
+            {myClasses.map((data, index) => (
+              <tr>
+                <td>{index + 1}</td>
+                <td>Cy Ganderton</td>
+                <td>{data?.enrolled_students ? data.enrolled_students : 0}</td>
+                <td>{data.status}</td>
+                <td> jsdc ksdk sdn ksdnkkankdask</td>
+                <td>
+                  <button className="btn btn-xs btn-warning">Update</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default MyClasses;

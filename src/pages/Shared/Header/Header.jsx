@@ -3,7 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 
 const Header = () => {
   const { user, logOut } = useAuth();
- 
+
   const navItems = (
     <>
       <li>
@@ -42,7 +42,7 @@ const Header = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm font-bold dropdown-content  mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm font-bold dropdown-content  mt-3 p-2 shadow bg-gray-500  rounded-box w-52"
           >
             {navItems}
           </ul>

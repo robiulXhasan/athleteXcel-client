@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { FaVolleyballBall } from "react-icons/fa";
 
 const ClassCard = ({ data }) => {
-  const { image, name, available_seats, price, instructor } = data;
+  const { image, name, available_seats, price, instructor_name } = data;
   //TODO: update the user statue from backend
   const isAdmin = false;
   const isInstructor = false;
+  const handleSelectClass = (classData) => {
+    console.log(classData);
+  };
 
   return (
     <div
@@ -19,7 +22,7 @@ const ClassCard = ({ data }) => {
       </figure>
       <div className="card-body p-4">
         <h2 className="card-title justify-center mt-4">{name}</h2>
-        <p>Instructor: {instructor.instructor_name}</p>
+        <p>Instructor: {instructor_name}</p>
         <div className="flex items-center justify-between">
           <p>Available seats: {available_seats}</p>
           <p>Fee: ${price}</p>
@@ -27,10 +30,11 @@ const ClassCard = ({ data }) => {
       </div>
       <div className="card-actions">
         <button
+          onClick={() => handleSelectClass(data)}
           disabled={available_seats == 0 || isAdmin || isInstructor}
           className="btn btn-neutral w-full  rounded-none "
         >
-          Book
+          Select Class
         </button>
       </div>
     </div>

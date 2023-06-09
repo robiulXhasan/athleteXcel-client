@@ -1,132 +1,92 @@
 [
   {
+    "_id": 1,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Basketball Training",
     "available_seats": 5,
     "price": 100,
-    "instructor": {
-      "instructor_img": "https://img.freepik.com/free-photo/full-shot-kid-man-playing-together_23-2149235661.jpg?size=626&ext=jpg&ga=GA1.1.1346969389.1672858153&semt=country_rows_v1",
-      "instructor_name": "John Doe",
-      "instructor_email": "john@example.com",
-      "rating": 4.5
-    },
+    "instructor_name": "John Doe",
     "num_students": 10
   },
   {
+    "_id": 2,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Soccer Camp",
     "available_seats": 20,
     "price": 80,
-    "instructor": {
-      "instructor_img": "https://img.freepik.com/free-photo/full-shot-kid-man-playing-together_23-2149235661.jpg?size=626&ext=jpg&ga=GA1.1.1346969389.1672858153&semt=country_rows_v1",
-      "instructor_name": "Jane Smith",
-      "instructor_email": "jane@example.com",
-      "rating": 4.5
-    },
+    "instructor_name": "Jane Smith",
     "num_students": 12
   },
   {
+    "_id": 3,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Tennis Lessons",
     "available_seats": 10,
     "price": 120,
-    "instructor": {
-      "instructor_img": "https://img.freepik.com/free-photo/full-shot-kid-man-playing-together_23-2149235661.jpg?size=626&ext=jpg&ga=GA1.1.1346969389.1672858153&semt=country_rows_v1",
-      "instructor_name": "Mike Johnson",
-      "instructor_email": "mike@example.com",
-      "rating": 4.5
-    },
+    "instructor_name": "Mike Johnson",
     "num_students": 8
   },
   {
+    "_id": 4,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Gymnastics Workshop",
     "available_seats": 12,
     "price": 150,
-    "instructor": {
-      "instructor_img": "https://img.freepik.com/free-photo/full-shot-kid-man-playing-together_23-2149235661.jpg?size=626&ext=jpg&ga=GA1.1.1346969389.1672858153&semt=country_rows_v1",
-      "instructor_name": "Emily Wilson",
-      "instructor_email": "emily@example.com",
-      "rating": 4.5
-    },
+    "instructor_name": "Emily Wilson",
     "num_students": 15
   },
   {
+    "_id": 5,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Swimming Lessons",
     "available_seats": 8,
     "price": 200,
-    "instructor": {
-      "instructor_img": "https://img.freepik.com/free-photo/full-shot-kid-man-playing-together_23-2149235661.jpg?size=626&ext=jpg&ga=GA1.1.1346969389.1672858153&semt=country_rows_v1",
-      "instructor_name": "David Brown",
-      "instructor_email": "david@example.com",
-      "rating": 4.5
-    },
+    "instructor_name": "David Brown",
     "num_students": 10
   },
   {
+    "_id": 6,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Yoga Retreat",
     "available_seats": 15,
     "price": 80,
-    "instructor": {
-      "instructor_img": "https://img.freepik.com/free-photo/full-shot-kid-man-playing-together_23-2149235661.jpg?size=626&ext=jpg&ga=GA1.1.1346969389.1672858153&semt=country_rows_v1",
-      "instructor_name": "Sarah Thompson",
-      "instructor_email": "sarah@example.com",
-      "rating": 4.5
-    },
+    "instructor_name": "Sarah Thompson",
     "num_students": 20
   },
   {
+    "_id": 7,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Karate Class",
     "available_seats": 10,
     "price": 90,
-    "instructor": {
-      "instructor_img": "https://img.freepik.com/free-photo/full-shot-kid-man-playing-together_23-2149235661.jpg?size=626&ext=jpg&ga=GA1.1.1346969389.1672858153&semt=country_rows_v1",
-      "instructor_name": "Michael Lee",
-      "instructor_email": "michael@example.com",
-      "rating": 4.5
-    },
+    "instructor_name": "Michael Lee",
     "num_students": 12
   },
   {
+    "_id": 8,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Volleyball Training",
     "available_seats": 18,
     "price": 110,
-    "instructor": {
-      "instructor_img": "https://img.freepik.com/free-photo/full-shot-kid-man-playing-together_23-2149235661.jpg?size=626&ext=jpg&ga=GA1.1.1346969389.1672858153&semt=country_rows_v1",
-      "instructor_name": "Karen Wilson",
-      "instructor_email": "karen@example.com",
-      "rating": 4.5
-    },
+    "instructor_name": "Karen Wilson",
     "num_students": 16
   },
   {
+    "_id": 9,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Boxing Workshop",
     "available_seats": 10,
     "price": 150,
-    "instructor": {
-      "instructor_img": "https://img.freepik.com/free-photo/full-shot-kid-man-playing-together_23-2149235661.jpg?size=626&ext=jpg&ga=GA1.1.1346969389.1672858153&semt=country_rows_v1",
-      "instructor_name": "Ryan Davis",
-      "instructor_email": "ryan@example.com",
-      "rating": 4.5
-    },
+    "instructor_name": "Ryan Davis",
     "num_students": 8
   },
   {
+    "_id": 10,
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Golf Lessons",
     "available_seats": 12,
     "price": 120,
-    "instructor": {
-      "instructor_img": "https://img.freepik.com/free-photo/full-shot-kid-man-playing-together_23-2149235661.jpg?size=626&ext=jpg&ga=GA1.1.1346969389.1672858153&semt=country_rows_v1",
-      "instructor_name": "Olivia Adams",
-      "instructor_email": "olivia@example.com",
-      "rating": 4.5
-    },
+    "instructor_name": "Olivia Adams",
     "num_students": 10
   }
 ]

@@ -6,6 +6,8 @@ import Classes from "../pages/Classes/Classes";
 import SignIn from "../pages/SignIn/SignIn";
 import Register from "../pages/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
+import Dashboard from "../Layouts/Dashboard";
+import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,16 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "dashboard/manageusers",
+        element: <ManageUsers />,
       },
     ],
   },

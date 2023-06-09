@@ -3,7 +3,7 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 
 const Instructor = ({ data }) => {
-  const { instructor_name, instructor_img, rating } = data.instructor;
+  const { instructor_name, instructor_img, rating } = data;
   return (
     <div className="card border border-purple-500  rounded-none">
       <figure>

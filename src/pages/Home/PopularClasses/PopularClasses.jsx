@@ -4,7 +4,7 @@ import useClasses from "../../../hooks/useClasses";
 import Classes from "./Classes";
 
 const PopularClasses = () => {
-  const classes = useClasses();
+  const [classes] = useClasses();
   const popularClasses = classes.sort((a, b) => b.num_students - a.num_students).slice(0, 6);
   return (
     <div className="w-11/12 md:w-10/12 mx-auto">

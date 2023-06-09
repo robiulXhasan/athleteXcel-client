@@ -33,7 +33,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="dashboard/additems">
+                <NavLink to="dashboard/manageclasses">
                   <FaCalendar /> Manage Classes
                 </NavLink>
               </li>

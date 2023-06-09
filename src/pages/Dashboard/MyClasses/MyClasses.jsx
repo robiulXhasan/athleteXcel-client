@@ -19,8 +19,8 @@ const MyClasses = () => {
   return (
     <div className="w-11/12">
       <SectionHeading subHeading="Classes" heading="My Classes"></SectionHeading>
-      <div className="overflow-x-auto bg-[#DFECFF] p-5 rounded-lg shadow-xl">
-        <table className="table table-md table-pin-rows table-pin-cols">
+      <div className="overflow-x-auto bg-[#DFECFF] p-5 mb-10 rounded-lg shadow-xl">
+        <table className="table table-md table-pin-rows table-pin-cols ">
           <thead>
             <tr className="bg-primary text-white">
               <td></td>
@@ -35,10 +35,12 @@ const MyClasses = () => {
             {myClasses.map((data, index) => (
               <tr>
                 <td>{index + 1}</td>
-                <td>Cy Ganderton</td>
+                <td>{data.name}</td>
                 <td>{data?.enrolled_students ? data.enrolled_students : 0}</td>
                 <td>{data.status}</td>
-                <td> jsdc ksdk sdn ksdnkkankdask</td>
+                <td>
+                  {data.status == "pending" || data.status == "approved" ? "N/A" : data.feedback}
+                </td>
                 <td>
                   <button className="btn btn-xs btn-warning">Update</button>
                 </td>

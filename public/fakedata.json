@@ -1,92 +1,112 @@
 [
   {
-    "_id": 1,
+    
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Basketball Training",
     "available_seats": 5,
     "price": 100,
-    "instructor_name": "John Doe",
-    "num_students": 10
+    "instructor_name": "Robiul Hasan",
+    "instructor_email": "robiul@gmail.com",
+    "enroll_students": 12,
+    "status": "approved"
   },
   {
-    "_id": 2,
+    
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Soccer Camp",
     "available_seats": 20,
     "price": 80,
-    "instructor_name": "Jane Smith",
-    "num_students": 12
+    "instructor_name": "Robiul Hasan",
+    "instructor_email": "robiul@gmail.com",
+    "enroll_students": 12,
+    "status": "approved"
   },
   {
-    "_id": 3,
+    
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Tennis Lessons",
     "available_seats": 10,
     "price": 120,
-    "instructor_name": "Mike Johnson",
-    "num_students": 8
+    "instructor_name": "Hasan",
+    "instructor_email": "hasan@gmail.com",
+    "enroll_students": 12,
+    "status": "approved"
   },
   {
-    "_id": 4,
+    
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Gymnastics Workshop",
     "available_seats": 12,
     "price": 150,
-    "instructor_name": "Emily Wilson",
-    "num_students": 15
+    "instructor_name": "Robiul Hasan",
+    "instructor_email": "robiul@gmail.com",
+    "enroll_students": 15,
+    "status": "approved"
   },
   {
-    "_id": 5,
+    
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Swimming Lessons",
     "available_seats": 8,
     "price": 200,
-    "instructor_name": "David Brown",
-    "num_students": 10
+    "instructor_name": "Hasan",
+    "instructor_email": "hasan@gmail.com",
+    "enroll_students": 12,
+    "status": "approved"
   },
   {
-    "_id": 6,
+    
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Yoga Retreat",
     "available_seats": 15,
     "price": 80,
-    "instructor_name": "Sarah Thompson",
-    "num_students": 20
+    "instructor_name": "Hasan",
+    "instructor_email": "hasan@gmail.com",
+    "enroll_students": 12,
+    "status": "deny"
   },
   {
-    "_id": 7,
+    
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Karate Class",
     "available_seats": 10,
     "price": 90,
-    "instructor_name": "Michael Lee",
-    "num_students": 12
+    "instructor_name": "Robiul Hasan",
+    "instructor_email": "robi16275@gmail.com",
+    "enroll_students": 12,
+    "status": "pending"
   },
   {
-    "_id": 8,
+    
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Volleyball Training",
     "available_seats": 18,
     "price": 110,
-    "instructor_name": "Karen Wilson",
-    "num_students": 16
+    "instructor_name": "Robiul Hasan",
+    "instructor_email": "robi16275@gmail.com",
+    "enroll_students": 12,
+    "status": "pending"
   },
   {
-    "_id": 9,
+    
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Boxing Workshop",
     "available_seats": 10,
     "price": 150,
-    "instructor_name": "Ryan Davis",
-    "num_students": 8
+    "instructor_name": "Robiul Hasan",
+    "instructor_email": "robi16275@gmail.com",
+    "enroll_students": 12,
+    "status": "approved"
   },
   {
-    "_id": 10,
+    
     "image": "https://img.freepik.com/premium-vector/basketball-dribble-dark-flame-silhouette_9245-116.jpg?w=740",
     "name": "Golf Lessons",
     "available_seats": 12,
     "price": 120,
-    "instructor_name": "Olivia Adams",
-    "num_students": 10
+    "instructor_name": "Robiul Hasan",
+    "instructor_email": "robi16275@gmail.com",
+    "enroll_students": 12,
+    "status": "pending"
   }
 ]

@@ -1,8 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import useAuth from "../../../../hooks/useAuth";
-import SectionHeading from "../../../Shared/SectionHeading";
-import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useAuth from "../../../hooks/useAuth";
+import SectionHeading from "../../Shared/SectionHeading";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
 const image_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;

@@ -4,11 +4,18 @@ import { RiMenuUnfoldFill } from "react-icons/ri";
 import { GiConfirmed } from "react-icons/gi";
 import { BiSelectMultiple } from "react-icons/bi";
 import { NavLink, Link, Outlet } from "react-router-dom";
+import useUsers from "../hooks/useUsers";
+import useAuth from "../hooks/useAuth";
 
 const Dashboard = () => {
+  const { user } = useAuth();
   //TODO: update data by dynamically
-  const isAdmin = true;
-  const isInstructor = false;
+  const users = useUsers();
+
+  const findUser = users.find((data) => data?.email === user?.email);
+  console.log(findUser);
+  const isAdmin = findUser?.role === "admin";
+  const isInstructor = findUser?.role === "instructor";
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

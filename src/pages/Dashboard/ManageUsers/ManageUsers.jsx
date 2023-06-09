@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import SectionHeading from "../../Shared/SectionHeading";
+import useUsers from "../../../hooks/useUsers";
 
 const ManageUsers = () => {
-  const { data: users = [], refetch } = useQuery({
-    queryKey: ["todos"],
-    queryFn: async () => {
-      const res = await fetch("http://localhost:5000/users");
-      return res.json();
-    },
-  });
+  const [adminBtnDisable, setAdminBtnDisable] = useState(false);
+  const [instructorBtnDisable, setInstructorBtnDisable] = useState(false);
+  //   const { data: users = [], refetch } = useQuery({
+  //     queryKey: ["users"],
+  //     queryFn: async () => {
+  //       const res = await fetch("http://localhost:5000/users");
+  //       return res.json();
+  //     },
+  //   });
+  const users = useUsers();
 
   const handleMakeAdmin = (user) => {
     fetch(`http://localhost:5000/users/admin/${user._id}`, {
@@ -18,6 +22,21 @@ const ManageUsers = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount) {
+          refetch();
+          return setAdminBtnDisable(!adminBtnDisable);
+        } else {
+          return setAdminBtnDisable(false);
+        }
+      });
+  };
+  const handleMakeInstructor = (user) => {
+    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          setInstructorBtnDisable(true);
           refetch();
         }
       });
@@ -56,12 +75,14 @@ const ManageUsers = () => {
                 <td className="flex items-center gap-3 mt-2">
                   <button
                     onClick={() => handleMakeAdmin(user)}
+                    disabled={adminBtnDisable}
                     className="btn btn-xs btn-warning btn-outline"
                   >
                     Make Admin
                   </button>{" "}
                   <button
                     onClick={() => handleMakeInstructor(user)}
+                    disabled={instructorBtnDisable}
                     className="btn btn-xs btn-outline"
                   >
                     Make Instructor

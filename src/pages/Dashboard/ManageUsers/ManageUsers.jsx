@@ -13,11 +13,11 @@ const ManageUsers = () => {
   //       return res.json();
   //     },
   //   });
-  const users = useUsers();
+  const [users, refetch] = useUsers();
 
   const handleMakeAdmin = (user) => {
     fetch(`http://localhost:5000/users/admin/${user._id}`, {
-      method: "PATCH",
+      method: "PATCH"
     })
       .then((res) => res.json())
       .then((data) => {
@@ -45,9 +45,10 @@ const ManageUsers = () => {
   return (
     <div className="w-10/12">
       <SectionHeading heading="Manage Users" subHeading="Manage Users"></SectionHeading>
-      <h3 className="text-2xl font-bold text-center ">Total Users: {users.length}</h3>
-      <div className="overflow-x-auto">
-        <table className="table">
+
+      <div className="overflow-x-auto bg-[#DFECFF] p-5 rounded-lg shadow-lg">
+        <h3 className="text-2xl font-bold text-center my-5">Total Users: {users.length}</h3>
+        <table className="table mb-10">
           {/* head */}
           <thead>
             <tr className="bg-[#0F7BF2] text-white">

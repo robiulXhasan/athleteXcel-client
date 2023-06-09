@@ -6,6 +6,7 @@ import { BiSelectMultiple } from "react-icons/bi";
 import { NavLink, Link, Outlet } from "react-router-dom";
 import useUsers from "../hooks/useUsers";
 import useAuth from "../hooks/useAuth";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -14,7 +15,7 @@ const Dashboard = () => {
 
   const findUser = users.find((data) => data?.email === user?.email);
   console.log(findUser);
-  const isAdmin = findUser?.role === "admin";
+  const [isAdmin] = useAdmin();
   const isInstructor = findUser?.role === "instructor";
   return (
     <div className="drawer lg:drawer-open">
@@ -28,7 +29,7 @@ const Dashboard = () => {
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 h-full text-lg font-medium  bg-[#DFECFF] text-base-content">
+        <ul className="menu p-4 w-80 h-full text-lg font-medium  bg-[#A6C9FF] text-base-content">
           {/* Sidebar content here */}
           {isAdmin ? (
             <>

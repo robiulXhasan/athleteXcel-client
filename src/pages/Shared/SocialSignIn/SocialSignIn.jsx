@@ -22,10 +22,12 @@ const SocialSignIn = ({ setError }) => {
         })
           .then((res) => res.json())
           .then((data) => {
+            console.log(data);
             if (data.insertedId) {
-              navigate(from, { replace: true });
+              console.log("success");
             }
           });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);

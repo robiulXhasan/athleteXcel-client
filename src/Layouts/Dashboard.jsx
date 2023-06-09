@@ -4,19 +4,12 @@ import { RiMenuUnfoldFill } from "react-icons/ri";
 import { GiConfirmed } from "react-icons/gi";
 import { BiSelectMultiple } from "react-icons/bi";
 import { NavLink, Link, Outlet } from "react-router-dom";
-import useUsers from "../hooks/useUsers";
-import useAuth from "../hooks/useAuth";
 import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
 
 const Dashboard = () => {
-  const { user } = useAuth();
-  //TODO: update data by dynamically
-  const users = useUsers();
-
-  const findUser = users.find((data) => data?.email === user?.email);
-  console.log(findUser);
   const [isAdmin] = useAdmin();
-  const isInstructor = findUser?.role === "instructor";
+  const [isInstructor] = useInstructor();
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -64,7 +57,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="dashboard/reservation">
+                <NavLink to="dashboard/addclass">
                   <FaCalendar /> Add a Class
                 </NavLink>
               </li>

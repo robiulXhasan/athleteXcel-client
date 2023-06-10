@@ -31,19 +31,17 @@ const ManageUsers = () => {
   };
 
   return (
-    <div className="w-11/12">
+    <div className="w-full px-10 ">
       <SectionHeading heading="Manage Users" subHeading="Manage Users"></SectionHeading>
-
-      <div className="overflow-x-auto bg-[#DFECFF]  rounded-lg shadow-lg table-pin-rows table-pin-cols">
-        <h3 className="text-2xl font-bold text-center my-5">Total Users: {users.length}</h3>
-        <table className="table mb-10">
+      <div className="overflow-x-auto bg-[#DFECFF] py-10 rounded-lg shadow-2xl">
+        <table className="table">
           {/* head */}
           <thead>
-            <tr className="w-full ">
+            <tr className="bg-primary text-white">
               <th></th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
+              <th className="text-center">Name</th>
+              <th className="text-center">Email</th>
+              <th className="text-center">Role</th>
               <th className="text-center">Actions</th>
             </tr>
           </thead>
@@ -51,28 +49,28 @@ const ManageUsers = () => {
             {/* row 1 */}
             {users?.map((user, index) => (
               <tr key={user._id} className="hover border-b border-slate-300">
-                <td>{index + 1}</td>
-                <td>{user?.name}</td>
-                <td>{user?.email}</td>
-                <td>
+                <td className="text-center">{index + 1}</td>
+                <td className="text-center">{user?.name}</td>
+                <td className="text-center">{user?.email}</td>
+                <td className="text-center">
                   {user?.role == "admin"
                     ? "Admin"
                     : user?.role == "instructor"
                     ? "Instructor"
                     : "Student"}
                 </td>
-                <td className=" flex justify-start gap-2 ">
+                <td className=" flex justify-center mt-3 space-x-2 text-center">
                   <button
                     onClick={() => handleMakeAdmin(user)}
                     disabled={user?.role === "admin"}
-                    className="btn btn-xs btn-success   btn-outline"
+                    className="btn btn-xs btn-success  "
                   >
                     Make Admin
                   </button>{" "}
                   <button
                     onClick={() => handleMakeInstructor(user)}
                     disabled={user?.role === "instructor"}
-                    className="btn btn-xs btn-outline"
+                    className="btn btn-xs  btn-warning"
                   >
                     Make Instructor
                   </button>

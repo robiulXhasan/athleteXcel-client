@@ -76,7 +76,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="dashboard/reservation">
+                <NavLink to="/dashboard/bookedclass">
                   <BiSelectMultiple /> My Selected Class
                 </NavLink>
               </li>

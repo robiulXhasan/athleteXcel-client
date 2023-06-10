@@ -14,6 +14,7 @@ import InstructorRoute from "./InstructorRoute";
 import MyClasses from "../pages/Dashboard/MyClasses/MyClasses";
 import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
 import FeedBackClasses from "../pages/Dashboard/ManageClasses/FeedBackClasses";
+import MySelectedClass from "../pages/Dashboard/MySelectedClass/MySelectedClass";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       </PrivateRoutes>
     ),
     children: [
+      {
+        path: "/dashboard/bookedclass",
+        element: <MySelectedClass />,
+      },
       {
         path: "dashboard/manageusers",
         element: (

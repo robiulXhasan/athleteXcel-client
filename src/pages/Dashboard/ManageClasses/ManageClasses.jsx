@@ -32,9 +32,9 @@ const ManageClasses = () => {
   };
 
   return (
-    <div className="">
+    <div className="w-full px-5">
       <SectionHeading heading={"Manage Classes"} subHeading={"manage classes"} />
-      <div className="overflow-x-auto bg-[#DFECFF] ">
+      <div className="overflow-x-auto bg-[#DFECFF]  py-10 rounded-lg shadow-2xl">
         <table className="table">
           {/* head */}
           <thead>
@@ -72,7 +72,7 @@ const ManageClasses = () => {
                 <td className="text-center">{data.available_seats}</td>
                 <td className="text-center">${data.price}</td>
                 <td className="text-center">{data.status}</td>
-                <td className="text-center flex mt-3 space-x-2">
+                <td className="text-center flex justify-center mt-3 space-x-2">
                   <button
                     onClick={() => handleStatus(data._id, "Approved")}
                     disabled={data?.status == "Approved" || data?.status == "Denied"}

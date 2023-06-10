@@ -4,21 +4,42 @@ import useAdmin from "../../hooks/useAdmin";
 import useInstructor from "../../hooks/useInstructor";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const ClassCard = ({ data }) => {
   const { image, name, available_seats, price, instructor_name } = data;
+  const { user } = useAuth();
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   const [axiosSecure] = useAxiosSecure();
   //TODO: update the user statue from backend
 
   const handleSelectClass = (classData) => {
-    // console.log(classData);
-    axiosSecure.post("/selectedclass", { classData }).then((res) => {
+    const {
+      image,
+      name,
+      available_seats,
+      price,
+      instructor_name,
+      instructor_email,
+      enroll_students,
+    } = classData;
+    const bookedClass = {
+      image,
+      name,
+      available_seats,
+      price,
+      instructor_name,
+      instructor_email,
+      enroll_students,
+      user_email: user?.email,
+    };
+    // console.log(bookedClass);
+    axiosSecure.post("/bookedclass", { bookedClass }).then((res) => {
       if (res.data.insertedId) {
         Swal.fire({
           title: "Success!",
-          text: "Successfully Added Class !!",
+          text: "Successfully Booked a Class !!",
           icon: "success",
           confirmButtonText: "Ok",
         });

@@ -2,56 +2,44 @@ import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import SectionHeading from "../../Shared/SectionHeading";
 import useUsers from "../../../hooks/useUsers";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ManageUsers = () => {
-  const [adminBtnDisable, setAdminBtnDisable] = useState(false);
-  const [instructorBtnDisable, setInstructorBtnDisable] = useState(false);
   //   const { data: users = [], refetch } = useQuery({
   //     queryKey: ["users"],
   //     queryFn: async () => {
-  //       const res = await fetch("http://localhost:5000/users");
+  //       const res = await fetch("https://summer-camp-school-server-kohl.vercel.app/users");
   //       return res.json();
   //     },
   //   });
   const [users, refetch] = useUsers();
+  const [axiosSecure] = useAxiosSecure();
 
   const handleMakeAdmin = (user) => {
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
-      method: "PATCH"
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount) {
-          refetch();
-          return setAdminBtnDisable(!adminBtnDisable);
-        } else {
-          return setAdminBtnDisable(false);
-        }
-      });
+    axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
+      if (res.data.modifiedCount) {
+        refetch();
+      }
+    });
   };
   const handleMakeInstructor = (user) => {
-    fetch(`http://localhost:5000/users/instructor/${user._id}`, {
-      method: "PATCH",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.modifiedCount) {
-          setInstructorBtnDisable(true);
-          refetch();
-        }
-      });
+    axiosSecure.patch(`/users/instructor/${user._id}`).then((res) => {
+      if (res.data.modifiedCount) {
+        refetch();
+      }
+    });
   };
 
   return (
-    <div className="w-10/12">
+    <div className="w-11/12">
       <SectionHeading heading="Manage Users" subHeading="Manage Users"></SectionHeading>
 
-      <div className="overflow-x-auto bg-[#DFECFF] p-5 rounded-lg shadow-lg">
+      <div className="overflow-x-auto bg-[#DFECFF]  rounded-lg shadow-lg table-pin-rows table-pin-cols">
         <h3 className="text-2xl font-bold text-center my-5">Total Users: {users.length}</h3>
         <table className="table mb-10">
           {/* head */}
           <thead>
-            <tr className="bg-[#0F7BF2] text-white">
+            <tr className="w-full ">
               <th></th>
               <th>Name</th>
               <th>Email</th>
@@ -61,29 +49,29 @@ const ManageUsers = () => {
           </thead>
           <tbody>
             {/* row 1 */}
-            {users.map((user, index) => (
-              <tr key={user._id} className="">
-                <th>{index + 1}</th>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
+            {users?.map((user, index) => (
+              <tr key={user._id} className="hover border-b border-slate-300">
+                <td>{index + 1}</td>
+                <td>{user?.name}</td>
+                <td>{user?.email}</td>
                 <td>
-                  {user.role == "admin"
+                  {user?.role == "admin"
                     ? "Admin"
-                    : user.role == "instructor"
+                    : user?.role == "instructor"
                     ? "Instructor"
                     : "Student"}
                 </td>
-                <td className="flex items-center gap-3 mt-2">
+                <td className=" flex justify-start gap-2 ">
                   <button
                     onClick={() => handleMakeAdmin(user)}
-                    disabled={adminBtnDisable}
-                    className="btn btn-xs btn-warning btn-outline"
+                    disabled={user?.role === "admin"}
+                    className="btn btn-xs btn-success   btn-outline"
                   >
                     Make Admin
                   </button>{" "}
                   <button
                     onClick={() => handleMakeInstructor(user)}
-                    disabled={instructorBtnDisable}
+                    disabled={user?.role === "instructor"}
                     className="btn btn-xs btn-outline"
                   >
                     Make Instructor

@@ -35,7 +35,7 @@ const AddAClass = () => {
             available_seats: parseInt(data.available_seats),
             price: parseFloat(data.price),
             image: imageData.data.display_url,
-            status: "pending",
+            status: "Pending",
           };
           axiosSecure.post("/classes", classData).then((data) => {
             if (data.data.insertedId) {

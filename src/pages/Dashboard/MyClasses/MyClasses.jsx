@@ -11,7 +11,6 @@ const MyClasses = () => {
     queryKey: ["myClasses", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/classes/myclasses/${user?.email}`);
-      console.log(res);
       return res.data;
     },
   });
@@ -33,7 +32,7 @@ const MyClasses = () => {
           </thead>
           <tbody>
             {myClasses.map((data, index) => (
-              <tr>
+              <tr key={data._id}>
                 <td>{index + 1}</td>
                 <td>{data.name}</td>
                 <td>{data?.enrolled_students ? data.enrolled_students : 0}</td>

@@ -48,9 +48,13 @@ const AuthProvider = ({ children }) => {
       setUser(loggedUser);
       //get and set jwt token using axios
       if (loggedUser) {
-        axios.post("http://localhost:5000/jwt", { email: loggedUser.email }).then((data) => {
-          localStorage.setItem("access-token", data.data.token);
-        });
+        axios
+          .post("https://summer-camp-school-server-kohl.vercel.app/jwt", {
+            email: loggedUser.email,
+          })
+          .then((data) => {
+            localStorage.setItem("access-token", data.data.token);
+          });
       } else {
         localStorage.removeItem("access-token");
       }

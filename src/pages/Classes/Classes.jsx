@@ -5,7 +5,7 @@ import ClassCard from "./classCard";
 import SectionHeading from "../Shared/SectionHeading";
 
 const Classes = () => {
-  const classes = useClasses();
+  const [classes] = useClasses();
   return (
     <div>
       <PageBanner

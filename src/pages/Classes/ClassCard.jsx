@@ -1,13 +1,29 @@
 import React, { useState } from "react";
 import { FaVolleyballBall } from "react-icons/fa";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const ClassCard = ({ data }) => {
   const { image, name, available_seats, price, instructor_name } = data;
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
+  const [axiosSecure] = useAxiosSecure();
   //TODO: update the user statue from backend
-  const isAdmin = false;
-  const isInstructor = false;
+
   const handleSelectClass = (classData) => {
-    console.log(classData);
+    // console.log(classData);
+    axiosSecure.post("/selectedclass", { classData }).then((res) => {
+      if (res.data.insertedId) {
+        Swal.fire({
+          title: "Success!",
+          text: "Successfully Added Class !!",
+          icon: "success",
+          confirmButtonText: "Ok",
+        });
+      }
+    });
   };
 
   return (

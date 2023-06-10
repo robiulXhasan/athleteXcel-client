@@ -1,8 +1,8 @@
 import React from "react";
 import PageBanner from "../Shared/PageBanner/PageBanner";
 import useClasses from "../../hooks/useClasses";
-import ClassCard from "./classCard";
 import SectionHeading from "../Shared/SectionHeading";
+import ClassCard from "./ClassCard";
 
 const Classes = () => {
   const [classes] = useClasses();

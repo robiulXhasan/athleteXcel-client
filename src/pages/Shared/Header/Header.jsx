@@ -1,9 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import useAdmin from "../../../hooks/useAdmin";
+import useInstructor from "../../../hooks/useInstructor";
 
 const Header = () => {
   const { user, logOut } = useAuth();
-
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
   const navItems = (
     <>
       <li>
@@ -17,7 +20,13 @@ const Header = () => {
       </li>
       {user ? (
         <li>
-          <NavLink to="/dashboard">DASHBOARD</NavLink>
+          {isAdmin ? (
+            <NavLink to="/dashboard/admin-home">DASHBOARD</NavLink>
+          ) : isInstructor ? (
+            <NavLink to="/dashboard/instructor-home">DASHBOARD</NavLink>
+          ) : (
+            <NavLink to="/dashboard/student-home">DASHBOARD</NavLink>
+          )}
         </li>
       ) : (
         <></>

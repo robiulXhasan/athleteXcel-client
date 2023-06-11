@@ -87,9 +87,6 @@ const CheckoutForm = ({ data }) => {
             timer: 1500,
           });
         }
-        if (res.data.deleteResult.deletedCount) {
-          localStorage.removeItem(`cartButtonDisabled_${data?.class_id}_${user?.email}`);
-        }
       });
     }
   };

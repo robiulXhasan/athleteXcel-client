@@ -76,7 +76,10 @@ const MySelectedClass = () => {
                   <Link to={"/dashboard/payment/"} state={data} className="btn btn-success btn-xs">
                     Pay
                   </Link>
-                  <button onClick={() => handleDelete(data._id)} className="btn btn-warning btn-xs">
+                  <button
+                    onClick={() => handleDelete(data.class_id)}
+                    className="btn btn-warning btn-xs"
+                  >
                     Delete
                   </button>
                 </td>

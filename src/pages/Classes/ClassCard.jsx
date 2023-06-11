@@ -1,57 +1,79 @@
 import React, { useState } from "react";
 import { FaVolleyballBall } from "react-icons/fa";
-import useAdmin from "../../hooks/useAdmin";
-import useInstructor from "../../hooks/useInstructor";
+
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
-const ClassCard = ({ data, refetch }) => {
+const ClassCard = ({ data }) => {
   const { image, name, available_seats, price, instructor_name } = data;
   const { user } = useAuth();
-  const [isAdmin] = useAdmin();
-  const [isInstructor] = useInstructor();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const [isAdmin, setAdmin] = useState(false);
+  const [isInstructor, setInstructor] = useState(false);
+
+  if (user) {
+    fetch(`http://localhost:5000/user/check/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.role === "admin") {
+          setAdmin(true);
+        } else if (data.role === "instructor") {
+          setInstructor(true);
+        } else {
+        }
+      });
+  }
+
   const [axiosSecure] = useAxiosSecure();
   const [disable, setDisable] = useState(false);
 
   const handleSelectClass = (classData) => {
-    const {
-      _id,
-      image,
-      name,
-      available_seats,
-      price,
-      instructor_name,
-      instructor_email,
-      enroll_students,
-    } = classData;
-    const bookedClass = {
-      image,
-      name,
-      available_seats,
-      price,
-      instructor_name,
-      instructor_email,
-      enroll_students,
-      user_email: user?.email,
-      class_id: _id,
-    };
-    const productId = _id;
-    const userEmail = user?.email;
+    if (user) {
+      const {
+        _id,
+        image,
+        name,
+        available_seats,
+        price,
+        instructor_name,
+        instructor_email,
+        enroll_students,
+      } = classData;
+      const bookedClass = {
+        image,
+        name,
+        available_seats,
+        price,
+        instructor_name,
+        instructor_email,
+        enroll_students,
+        user_email: user?.email,
+        class_id: _id,
+      };
+      const productId = _id;
+      const userEmail = user?.email;
 
-    axiosSecure.post("/bookedclass", { bookedClass }).then((res) => {
-      if (res.data.insertedId) {
-        setDisable(true);
-        localStorage.setItem(`cartButtonDisabled_${productId}_${userEmail}`, "true");
-        refetch();
-        Swal.fire({
-          title: "Success!",
-          text: "Successfully Booked a Class !!",
-          icon: "success",
-          confirmButtonText: "Ok",
-        });
-      }
-    });
+      axiosSecure.post("/bookedclass", { bookedClass }).then((res) => {
+        if (res.data.insertedId) {
+          setDisable(true);
+          localStorage.setItem(`cartButtonDisabled_${productId}_${userEmail}`, "true");
+          Swal.fire({
+            title: "Success!",
+            text: "Successfully Booked a Class !!",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1000,
+          });
+        }
+      });
+    } else {
+      const state = { from: location };
+      navigate("/signin", { state, replace: true });
+    }
   };
 
   return (
@@ -77,9 +99,9 @@ const ClassCard = ({ data, refetch }) => {
           onClick={() => handleSelectClass(data)}
           disabled={
             available_seats == 0 ||
+            disable ||
             isAdmin ||
             isInstructor ||
-            disable ||
             localStorage.getItem(`cartButtonDisabled_${data._id}_${user?.email}`) === "true"
           }
           className="btn btn-neutral w-full  rounded-none "

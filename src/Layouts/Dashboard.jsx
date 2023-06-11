@@ -35,7 +35,7 @@ const Dashboard = () => {
               <>
                 {" "}
                 <li>
-                  <NavLink to="dashboard/adminhome">
+                  <NavLink to="/dashboard/admin-home">
                     <FaHome /> Admin Home
                   </NavLink>
                 </li>
@@ -59,7 +59,7 @@ const Dashboard = () => {
               <>
                 {" "}
                 <li>
-                  <NavLink to="dashboard/home">
+                  <NavLink to="/dashboard/instructor-home">
                     <FaHome /> Instructor Home
                   </NavLink>
                 </li>
@@ -78,8 +78,8 @@ const Dashboard = () => {
               <>
                 {" "}
                 <li>
-                  <NavLink to="dashboard/home">
-                    <FaHome /> User Home
+                  <NavLink to="/dashboard/Student-home">
+                    <FaHome /> Student Home
                   </NavLink>
                 </li>
                 <li>
@@ -88,12 +88,12 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="dashboard/reservation">
+                  <NavLink to="dashboard/enrollclass">
                     <GiConfirmed /> My Enrolled Class
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="dashboard/payment">
+                  <NavLink to="dashboard/payment-history">
                     <FaWallet /> Payment History
                   </NavLink>
                 </li>

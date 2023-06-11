@@ -16,6 +16,11 @@ import ManageClasses from "../pages/Dashboard/ManageClasses/ManageClasses";
 import FeedBackClasses from "../pages/Dashboard/ManageClasses/FeedBackClasses";
 import MySelectedClass from "../pages/Dashboard/MySelectedClass/MySelectedClass";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import EnrollClasses from "../pages/Dashboard/EnrollClasses/EnrollClasses";
+import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
+import StudentHome from "../pages/Dashboard/StudentHome/StudentHome";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import InstructorHome from "../pages/Dashboard/InstructorHome/InstructorHome";
 
 const router = createBrowserRouter([
   {
@@ -53,12 +58,32 @@ const router = createBrowserRouter([
     ),
     children: [
       {
+        path: "/dashboard/student-home",
+        element: <StudentHome />,
+      },
+      {
         path: "/dashboard/bookedclass",
         element: <MySelectedClass />,
       },
       {
+        path: "dashboard/enrollclass",
+        element: <EnrollClasses />,
+      },
+      {
         path: "/dashboard/payment",
         element: <Payment />,
+      },
+      {
+        path: "dashboard/payment-history",
+        element: <PaymentHistory />,
+      },
+      {
+        path: "/dashboard/admin-home",
+        element: (
+          <AdminRoute>
+            <AdminHome />,
+          </AdminRoute>
+        ),
       },
       {
         path: "dashboard/manageusers",
@@ -82,6 +107,14 @@ const router = createBrowserRouter([
           <AdminRoute>
             <FeedBackClasses />
           </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/instructor-home",
+        element: (
+          <InstructorRoute>
+            <InstructorHome />
+          </InstructorRoute>
         ),
       },
       {

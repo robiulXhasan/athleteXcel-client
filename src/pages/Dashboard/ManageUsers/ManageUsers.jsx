@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
 import SectionHeading from "../../Shared/SectionHeading";
 import useUsers from "../../../hooks/useUsers";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const ManageUsers = () => {
-  //   const { data: users = [], refetch } = useQuery({
-  //     queryKey: ["users"],
-  //     queryFn: async () => {
-  //       const res = await fetch("https://summer-camp-school-server-kohl.vercel.app/users");
-  //       return res.json();
-  //     },
-  //   });
+ 
   const [users, refetch] = useUsers();
   const [axiosSecure] = useAxiosSecure();
 

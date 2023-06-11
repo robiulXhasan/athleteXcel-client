@@ -6,16 +6,17 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 
-const ClassCard = ({ data }) => {
+const ClassCard = ({ data, refetch }) => {
   const { image, name, available_seats, price, instructor_name } = data;
   const { user } = useAuth();
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();
   const [axiosSecure] = useAxiosSecure();
-  //TODO: update the user statue from backend
+  const [disable, setDisable] = useState(false);
 
   const handleSelectClass = (classData) => {
     const {
+      _id,
       image,
       name,
       available_seats,
@@ -33,10 +34,16 @@ const ClassCard = ({ data }) => {
       instructor_email,
       enroll_students,
       user_email: user?.email,
+      class_id: _id,
     };
-    // console.log(bookedClass);
+    const productId = _id;
+    const userEmail = user?.email;
+
     axiosSecure.post("/bookedclass", { bookedClass }).then((res) => {
       if (res.data.insertedId) {
+        setDisable(true);
+        localStorage.setItem(`cartButtonDisabled_${productId}_${userEmail}`, "true");
+        refetch();
         Swal.fire({
           title: "Success!",
           text: "Successfully Booked a Class !!",
@@ -68,7 +75,13 @@ const ClassCard = ({ data }) => {
       <div className="card-actions">
         <button
           onClick={() => handleSelectClass(data)}
-          disabled={available_seats == 0 || isAdmin || isInstructor}
+          disabled={
+            available_seats == 0 ||
+            isAdmin ||
+            isInstructor ||
+            disable ||
+            localStorage.getItem(`cartButtonDisabled_${data._id}_${user?.email}`) === "true"
+          }
           className="btn btn-neutral w-full  rounded-none "
         >
           Select Class

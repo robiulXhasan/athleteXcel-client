@@ -5,7 +5,7 @@ import SectionHeading from "../Shared/SectionHeading";
 import ClassCard from "./ClassCard";
 
 const Classes = () => {
-  const [classes] = useClasses();
+  const [classes, refetch] = useClasses();
   return (
     <div>
       <PageBanner
@@ -16,7 +16,7 @@ const Classes = () => {
         <SectionHeading heading="Our Classes" subHeading="classes"></SectionHeading>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {classes.map((data) => (
-            <ClassCard key={data._id} data={data}></ClassCard>
+            <ClassCard key={data._id} refetch={refetch} data={data}></ClassCard>
           ))}
         </div>
       </div>

@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const ManageClasses = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -41,6 +42,9 @@ const ManageClasses = () => {
 
   return (
     <div className="w-full px-5">
+      <Helmet>
+        <title>Manage Classes | AthleteXcel </title>
+      </Helmet>
       <SectionHeading heading={"Manage Classes"} subHeading={"manage classes"} />
       <div className="overflow-x-auto bg-[#DFECFF]  py-10 rounded-lg shadow-2xl">
         <table className="table">

@@ -5,6 +5,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const FeedBackClasses = () => {
   const { id } = useParams();
@@ -24,18 +25,21 @@ const FeedBackClasses = () => {
       if (res.data.modifiedCount) {
         reset();
         Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'FeedBack Sent successfully!!',
-            showConfirmButton: false,
-            timer: 1500
-          })
+          position: "top-end",
+          icon: "success",
+          title: "FeedBack Sent successfully!!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
     });
   };
 
   return (
     <div className="md:w-10/12">
+      <Helmet>
+        <title>Feedback | AthleteXcel </title>
+      </Helmet>
       <SectionHeading heading="Feedback" subHeading="Feedback" />
       <div className="bg-[#DFECFF] p-10 rounded">
         <div className=" card md:card-side  bg-base-100 items-center  shadow-xl p-0">

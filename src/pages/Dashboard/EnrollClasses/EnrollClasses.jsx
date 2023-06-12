@@ -3,6 +3,7 @@ import SectionHeading from "../../Shared/SectionHeading";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 const EnrollClasses = () => {
   const { user } = useAuth();
@@ -16,6 +17,9 @@ const EnrollClasses = () => {
   });
   return (
     <div className="w-full px-2 md:px-10">
+      <Helmet>
+        <title>Enroll Classes | AthleteXcel </title>
+      </Helmet>
       <SectionHeading heading={"My Enroll Classes"} subHeading={"Enroll Classes"}></SectionHeading>
       <div className="overflow-x-auto bg-[#DFECFF] p-5 mb-10 rounded-lg shadow-xl">
         <table className="table table-md table-pin-rows table-pin-cols ">

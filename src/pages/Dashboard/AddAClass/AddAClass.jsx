@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import SectionHeading from "../../Shared/SectionHeading";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 
@@ -53,6 +54,9 @@ const AddAClass = () => {
   };
   return (
     <div className="w-11/12 md:w-10/12  ">
+      <Helmet>
+        <title>Add Class | AthleteXcel </title>
+      </Helmet>
       <SectionHeading heading="Add Class" subHeading="Class"></SectionHeading>
       <form
         onSubmit={handleSubmit(onSubmit)}

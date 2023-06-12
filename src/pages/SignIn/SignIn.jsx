@@ -4,6 +4,7 @@ import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import SocialSignIn from "../Shared/SocialSignIn/SocialSignIn";
+import { Helmet } from "react-helmet-async";
 
 const SignIn = () => {
   const { LoginUser } = useAuth();
@@ -34,6 +35,9 @@ const SignIn = () => {
 
   return (
     <div className="hero min-h-screen w-11/12 md:w-10/12 mx-auto">
+      <Helmet>
+        <title>Sign In | AthleteXcel </title>
+      </Helmet>
       <div className="hero-content flex-col lg:flex-row justify-between md:mt-20">
         <div className="text-center lg:text-left">
           <img

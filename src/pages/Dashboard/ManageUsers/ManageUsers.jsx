@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import SectionHeading from "../../Shared/SectionHeading";
 import useUsers from "../../../hooks/useUsers";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const ManageUsers = () => {
- 
   const [users, refetch] = useUsers();
   const [axiosSecure] = useAxiosSecure();
 
@@ -25,6 +25,9 @@ const ManageUsers = () => {
 
   return (
     <div className="w-full px-10 ">
+      <Helmet>
+        <title>Manage Users | AthleteXcel </title>
+      </Helmet>
       <SectionHeading heading="Manage Users" subHeading="Manage Users"></SectionHeading>
       <div className="overflow-x-auto bg-[#DFECFF] py-10 rounded-lg shadow-2xl">
         <table className="table">

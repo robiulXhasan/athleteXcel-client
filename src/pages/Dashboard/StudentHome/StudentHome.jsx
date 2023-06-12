@@ -2,6 +2,7 @@ import React from "react";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 const StudentHome = () => {
   const { user } = useAuth();
@@ -35,6 +36,9 @@ const StudentHome = () => {
 
   return (
     <div className="  min-h-screen min-w-full p-20">
+      <Helmet>
+        <title>Student Dashboard | AthleteXcel </title>
+      </Helmet>
       <h1 className="text-2xl font-bold mb-10">Hi, Welcome {user.displayName}</h1>
       <div className="flex space-y-5 md:space-y-0 gap-4">
         <div className="bg-warning text-white text-center font-bold  px-20 py-12 rounded-xl shadow-xl">

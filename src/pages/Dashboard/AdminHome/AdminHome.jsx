@@ -15,6 +15,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { Helmet } from "react-helmet-async";
 
 const AdminHome = () => {
   const { user } = useAuth();
@@ -30,6 +31,9 @@ const AdminHome = () => {
 
   return (
     <div className=" p-4">
+      <Helmet>
+        <title>Admin Dashboard | AthleteXcel </title>
+      </Helmet>
       <h1 className="text-2xl font-bold mb-10">Hi, Welcome {user.displayName}</h1>
 
       <div className="md:flex space-y-5 md:space-y-0 gap-4 justify-center mb-20">

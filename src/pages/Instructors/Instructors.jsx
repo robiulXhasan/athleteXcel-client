@@ -3,12 +3,16 @@ import useInstructors from "../../hooks/useInstructors";
 import InstructorCard from "./InstructorCard";
 import PageBanner from "../Shared/PageBanner/PageBanner";
 import SectionHeading from "../Shared/SectionHeading";
+import { Helmet } from "react-helmet-async";
 
 const Instructors = () => {
   const instructors = useInstructors();
 
   return (
     <div>
+      <Helmet>
+        <title>Instructor | AthleteXcel </title>
+      </Helmet>
       <PageBanner
         bannerTitle="Best Instructors will make you to produce best Output!"
         image="https://img.freepik.com/free-photo/full-shot-kid-man-playing-together_23-2149235661.jpg?size=626&ext=jpg&ga=GA1.1.1346969389.1672858153&semt=country_rows_v1"

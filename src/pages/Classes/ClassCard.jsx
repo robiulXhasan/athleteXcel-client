@@ -16,7 +16,7 @@ const ClassCard = ({ data }) => {
   const [isInstructor, setInstructor] = useState(false);
 
   if (user) {
-    fetch(`http://localhost:5000/user/check/${user?.email}`)
+    fetch(`https://summer-camp-school-server-kohl.vercel.app/user/check/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.role === "admin") {

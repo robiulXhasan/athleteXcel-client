@@ -6,6 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import SocialSignIn from "../Shared/SocialSignIn/SocialSignIn";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const [visible, setVisible] = useState(false);
@@ -30,7 +31,7 @@ const Register = () => {
         profileUpdate(data.name, data.photoURL)
           .then(() => {
             const savedUser = { name: data.name, email: data.email, image: data.photoURL };
-            fetch("https://summer-camp-school-server-kohl.vercel.app/users", {
+            fetch("https://summer-camp-school-server-kohl.vercel.appusers", {
               method: "POST",
               headers: {
                 "content-type": "application/json",
@@ -75,6 +76,9 @@ const Register = () => {
 
   return (
     <div className="hero min-h-screen w-11/12 md:w-10/12 mx-auto">
+      <Helmet>
+        <title>Sign Up | AthleteXcel </title>
+      </Helmet>
       <div className="hero-content flex-col lg:flex-row justify-between md:mt-20">
         <div className="text-center lg:text-left">
           <img

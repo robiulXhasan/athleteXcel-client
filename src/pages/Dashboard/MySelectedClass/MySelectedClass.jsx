@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import SectionHeading from "../../Shared/SectionHeading";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const MySelectedClass = () => {
   const { user } = useAuth();
@@ -36,6 +37,9 @@ const MySelectedClass = () => {
   };
   return (
     <div className="w-11/12 md:w-10/12">
+      <Helmet>
+        <title>My Selected Class | AthleteXcel </title>
+      </Helmet>
       <SectionHeading heading="Booked Classes" subHeading="classes" />
       <div className="overflow-x-auto bg-[#DFECFF] w-full p-5 shadow-lg rounded-lg">
         <table className="table">

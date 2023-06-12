@@ -3,6 +3,7 @@ import SectionHeading from "../../Shared/SectionHeading";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 const PaymentHistory = () => {
   const { user } = useAuth();
@@ -16,6 +17,9 @@ const PaymentHistory = () => {
   });
   return (
     <div>
+      <Helmet>
+        <title>Payment History | AthleteXcel </title>
+      </Helmet>
       <SectionHeading heading={"Payment History"} subHeading={"Payment"} />
       <div className="overflow-x-auto bg-[#DFECFF] p-5 mb-10 rounded-lg shadow-xl">
         <table className="table table-md table-pin-rows table-pin-cols ">

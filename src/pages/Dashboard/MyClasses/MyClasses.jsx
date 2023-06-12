@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import SectionHeading from "../../Shared/SectionHeading";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const MyClasses = () => {
   const { user } = useAuth();
@@ -18,6 +19,9 @@ const MyClasses = () => {
 
   return (
     <div className="w-11/12">
+      <Helmet>
+        <title>My Classes | AthleteXcel </title>
+      </Helmet>
       <SectionHeading subHeading="Classes" heading="My Classes"></SectionHeading>
       <div className="overflow-x-auto bg-[#DFECFF] p-5 mb-10 rounded-lg shadow-xl">
         <table className="table table-md table-pin-rows table-pin-cols ">

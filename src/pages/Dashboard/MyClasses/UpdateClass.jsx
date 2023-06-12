@@ -5,6 +5,7 @@ import useAuth from "../../../hooks/useAuth";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const UpdateClass = () => {
   const [axiosSecure] = useAxiosSecure();
@@ -37,6 +38,9 @@ const UpdateClass = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>Update Class | AthleteXcel </title>
+      </Helmet>
       <SectionHeading heading={"Update "} subHeading={"update"} />
 
       <form onSubmit={handleUpdate} className=" border bg-[#DFECFF] p-5 rounded space-y-3 shadow">

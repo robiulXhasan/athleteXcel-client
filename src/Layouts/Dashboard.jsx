@@ -1,5 +1,5 @@
 import React from "react";
-import {  FaHome } from "react-icons/fa";
+import { FaHome, FaSignOutAlt } from "react-icons/fa";
 import { RiMenuUnfoldFill } from "react-icons/ri";
 import { GiConfirmed, GiTeacher, GiWallet } from "react-icons/gi";
 import { SiGoogleclassroom } from "react-icons/si";
@@ -12,7 +12,7 @@ import { BsDatabaseFillAdd } from "react-icons/bs";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
   const [isInstructor] = useInstructor();
   return (
     <div className="drawer lg:drawer-open">
@@ -39,90 +39,98 @@ const Dashboard = () => {
               src={user?.photoURL}
               alt=""
             />
-            <h3 className="text-2xl ">{user.displayName}</h3>
+            <h3 className="text-lg ">{user.displayName}</h3>
           </div>
-          <ul>
-            {/* Sidebar content here */}
-            {isAdmin ? (
-              <>
-                <li>
-                  <NavLink to="/dashboard/admin-home">
-                    <FaHome /> Admin Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="dashboard/manageclasses">
-                    <SiGoogleclassroom /> Manage Classes
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="dashboard/manageusers">
-                    <MdManageAccounts /> Manage Users
-                  </NavLink>
-                </li>
-              </>
-            ) : isInstructor ? (
-              <>
-                {" "}
-                <li>
-                  <NavLink to="/dashboard/instructor-home">
-                    <FaHome /> Instructor Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="dashboard/addclass">
-                    <BsDatabaseFillAdd /> Add a Class
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="dashboard/myclasses">
-                    <SiGoogleclassroom /> My Classes
-                  </NavLink>
-                </li>
-              </>
-            ) : (
-              <>
-                {" "}
-                <li>
-                  <NavLink to="/dashboard/Student-home">
-                    <FaHome /> Student Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/dashboard/bookedclass">
-                    <SiGoogleclassroom /> My Selected Class
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="dashboard/enrollclass">
-                    <GiConfirmed /> My Enrolled Class
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="dashboard/payment-history">
-                    <GiWallet /> Payment History
-                  </NavLink>
-                </li>
-              </>
-            )}
-            <div className="divider before:bg-white after:bg-white"></div>
-            <li>
-              <Link to="/">
-                {" "}
-                <FaHome /> Home
-              </Link>
-            </li>
-            <li>
-              <Link to="/instructors">
-                <GiTeacher /> Instructors
-              </Link>
-            </li>
-            <li>
-              <Link to="/classes">
-                <SiGoogleclassroom /> Classes
-              </Link>
-            </li>
-          </ul>
+          <div>
+            {" "}
+            <ul>
+              {/* Sidebar content here */}
+              {isAdmin ? (
+                <>
+                  <li>
+                    <NavLink to="/dashboard/admin-home">
+                      <FaHome /> Admin Home
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="dashboard/manageclasses">
+                      <SiGoogleclassroom /> Manage Classes
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="dashboard/manageusers">
+                      <MdManageAccounts /> Manage Users
+                    </NavLink>
+                  </li>
+                </>
+              ) : isInstructor ? (
+                <>
+                  {" "}
+                  <li>
+                    <NavLink to="/dashboard/instructor-home">
+                      <FaHome /> Instructor Home
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="dashboard/addclass">
+                      <BsDatabaseFillAdd /> Add a Class
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="dashboard/myclasses">
+                      <SiGoogleclassroom /> My Classes
+                    </NavLink>
+                  </li>
+                </>
+              ) : (
+                <>
+                  {" "}
+                  <li>
+                    <NavLink to="/dashboard/Student-home">
+                      <FaHome /> Student Home
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/dashboard/bookedclass">
+                      <SiGoogleclassroom /> My Selected Class
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="dashboard/enrollclass">
+                      <GiConfirmed /> My Enrolled Class
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="dashboard/payment-history">
+                      <GiWallet /> Payment History
+                    </NavLink>
+                  </li>
+                </>
+              )}
+              <div className="divider before:bg-white after:bg-white"></div>
+              <li>
+                <Link to="/">
+                  {" "}
+                  <FaHome /> Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/instructors">
+                  <GiTeacher /> Instructors
+                </Link>
+              </li>
+              <li>
+                <Link to="/classes">
+                  <SiGoogleclassroom /> Classes
+                </Link>
+              </li>
+              <li>
+                <Link onClick={logOut} to="/">
+                  <FaSignOutAlt /> Sign Out
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

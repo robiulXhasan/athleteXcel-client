@@ -22,6 +22,7 @@ import StudentHome from "../pages/Dashboard/StudentHome/StudentHome";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import InstructorHome from "../pages/Dashboard/InstructorHome/InstructorHome";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import UpdateClass from "../pages/Dashboard/MyClasses/UpdateClass";
 
 const router = createBrowserRouter([
   {
@@ -125,6 +126,14 @@ const router = createBrowserRouter([
         element: (
           <InstructorRoute>
             <AddAClass />
+          </InstructorRoute>
+        ),
+      },
+      {
+        path: "/dashboard/update/classes/:id",
+        element: (
+          <InstructorRoute>
+            <UpdateClass />
           </InstructorRoute>
         ),
       },

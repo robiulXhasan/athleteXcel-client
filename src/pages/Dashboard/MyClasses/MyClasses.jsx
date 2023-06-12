@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import { useQuery } from "@tanstack/react-query";
 import SectionHeading from "../../Shared/SectionHeading";
+import { Link } from "react-router-dom";
 
 const MyClasses = () => {
   const { user } = useAuth();
@@ -41,7 +42,12 @@ const MyClasses = () => {
                   {data.status == "pending" || data.status == "approved" ? "N/A" : data.feedback}
                 </td>
                 <td>
-                  <button className="btn btn-xs btn-warning">Update</button>
+                  <Link
+                    to={`/dashboard/update/classes/${data._id}`}
+                    className="btn btn-xs btn-warning"
+                  >
+                    Update
+                  </Link>
                 </td>
               </tr>
             ))}

@@ -10,7 +10,11 @@ const InstructorCard = ({ instructor }) => {
   return (
     <div className="card rounded-none border p-5  border-purple-500  bg-slate-300 ">
       <figure>
-        <img className=" rounded-full h-72 w-72 object-cover relative" src={image} alt="car!" />
+        <img
+          className=" rounded-full h-72 w-72 object-cover object-center relative"
+          src={image}
+          alt="car!"
+        />
         <FaVolleyballBall className="text-6xl absolute bottom-[150px] bg-white  mx-auto rounded-full text-purple-600 hover:text-green-800  border-8 border-white  " />
       </figure>
       <div className="card-body ">

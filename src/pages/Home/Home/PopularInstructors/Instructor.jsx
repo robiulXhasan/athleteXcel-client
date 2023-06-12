@@ -9,7 +9,7 @@ const Instructor = ({ data }) => {
     <div className="card rounded-none border p-5  border-purple-500  bg-slate-300 ">
       <figure>
         <img
-          className=" rounded-full h-48 w-48 md:h-72 md:w-72 object-cover relative"
+          className=" rounded-full h-48 w-48 md:h-72 md:w-72 object-cover object-center relative"
           src={image}
           alt="car!"
         />

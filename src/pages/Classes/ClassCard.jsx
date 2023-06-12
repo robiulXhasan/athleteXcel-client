@@ -84,7 +84,7 @@ const ClassCard = ({ data }) => {
       }`}
     >
       <figure className="">
-        <img src={image} alt="" />
+        <img className="h-[300px] w-full object-cover object-center" src={image} alt="" />
         <FaVolleyballBall className="text-6xl absolute bottom-[160px] bg-white  mx-auto rounded-full text-purple-600 hover:text-green-800  border-8 border-white  " />
         <div className="absolute top-0 right-0 text-xl py-2 px-4 bg-purple-500 text-white  font-medium ">
           Enroll Fee: ${price}

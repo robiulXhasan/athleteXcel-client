@@ -9,6 +9,7 @@ import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
 import useAuth from "../hooks/useAuth";
 import { BsDatabaseFillAdd } from "react-icons/bs";
+import logo from "../assets/logo.png";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
@@ -27,11 +28,14 @@ const Dashboard = () => {
       <div className="drawer-side ">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 
-        <div className="menu p-4 w-80 h-full text-lg font-medium bg-[#A6C9FF]  text-base-content">
-          <div className="bg-white p-3 rounded mb-5">
-            <Link to="/" className=" text-lg  md:text-xl tracking-[0.16rem] font-bold ">
-              SPORTS ACADEMIES
-            </Link>
+        <div className="menu px-4 py-2 w-80 h-full text-lg font-medium bg-[#A6C9FF]  text-base-content">
+          <div className="flex gap-2 mb-3">
+            <img className="w-8" src={logo} alt="" />
+            <div>
+              <span className="px-0 text-xs  md:text-2xl tracking-[0.18rem] font-extrabold ">
+                Athlete<span className="text-purple-600">Xcel</span>
+              </span>
+            </div>
           </div>
           <div className=" flex flex-col text-center mb-5">
             <img

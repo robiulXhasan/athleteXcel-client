@@ -3,6 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
+import { Fade } from "react-awesome-reveal";
 
 const InstructorHome = () => {
   const { user, loading } = useAuth();
@@ -45,20 +46,28 @@ const InstructorHome = () => {
       <Helmet>
         <title>Instructor Dashboard | AthleteXcel </title>
       </Helmet>
-      <h1 className="text-2xl font-bold mb-10">Hi, Welcome {user.displayName}</h1>
+      <Fade direction="left" delay={1e3} cascade damping={1e-1}>
+        <h1 className="text-2xl font-bold mb-10">Hi, Welcome {user.displayName}</h1>
+      </Fade>{" "}
       <div className="md:flex space-y-5 md:space-y-0 gap-4">
-        <div className="bg-warning text-white text-center font-bold  px-20 py-12 rounded-xl shadow-xl">
-          <p className="text-4xl ">{addedClass?.approvedResult?.length}</p>
-          <p className="text-2xl mt-4 "> Approved Class</p>
-        </div>
-        <div className="bg-green-600 text-white text-center font-bold  px-20 py-12 rounded-xl shadow-xl">
-          <p className="text-4xl ">{addedClass?.pendingResult?.length}</p>
-          <p className="text-2xl mt-4 "> Pending Class</p>
-        </div>
-        <div className="bg-primary text-white text-center font-bold  px-20 py-12 rounded-xl shadow-xl">
-          <p className="text-4xl ">{totalStudent}</p>
-          <p className="text-2xl mt-4 "> Total Students</p>
-        </div>
+        <Fade direction="left">
+          <div className="bg-warning text-white text-center font-bold  px-20 py-12 rounded-xl shadow-xl">
+            <p className="text-4xl ">{addedClass ? addedClass?.approvedResult?.length : 0}</p>
+            <p className="text-2xl mt-4 "> Approved Class</p>
+          </div>
+        </Fade>
+        <Fade direction="up">
+          <div className="bg-green-600 text-white text-center font-bold  px-20 py-12 rounded-xl shadow-xl">
+            <p className="text-4xl ">{addedClass ? addedClass?.pendingResult?.length : 0}</p>
+            <p className="text-2xl mt-4 "> Pending Class</p>
+          </div>
+        </Fade>
+        <Fade direction="right">
+          <div className="bg-primary text-white text-center font-bold  px-20 py-12 rounded-xl shadow-xl">
+            <p className="text-4xl ">{totalStudent ? totalStudent : 0}</p>
+            <p className="text-2xl mt-4 "> Total Students</p>
+          </div>
+        </Fade>
       </div>
     </div>
   );

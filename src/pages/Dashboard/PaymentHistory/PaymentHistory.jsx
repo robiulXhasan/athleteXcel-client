@@ -52,6 +52,7 @@ const PaymentHistory = () => {
                 </td>
                 <td className="text-center">${data?.class?.price}</td>
                 <td className="text-center font-semibold text-green-600">{data?.transactionId}</td>
+                <td>{data?.date}</td>
               </tr>
             ))}
           </tbody>

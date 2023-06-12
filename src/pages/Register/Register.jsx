@@ -31,7 +31,7 @@ const Register = () => {
         profileUpdate(data.name, data.photoURL)
           .then(() => {
             const savedUser = { name: data.name, email: data.email, image: data.photoURL };
-            fetch("https://summer-camp-school-server-kohl.vercel.appusers", {
+            fetch("https://summer-camp-school-server-kohl.vercel.app/users", {
               method: "POST",
               headers: {
                 "content-type": "application/json",

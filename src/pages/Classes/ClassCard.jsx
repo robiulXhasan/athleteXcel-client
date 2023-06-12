@@ -5,6 +5,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
 
 const ClassCard = ({ data }) => {
   const { image, name, available_seats, enroll_students, price, instructor_name } = data;
@@ -90,12 +91,14 @@ const ClassCard = ({ data }) => {
         </div>
       </figure>
       <div className="card-body p-4">
-        <h2 className="card-title justify-center mt-4">{name}</h2>
-        <p>Instructor: {instructor_name}</p>
-        <div className="flex items-center justify-between">
-          <p>Available seats: {available_seats}</p>
-          <p>Enroll Students: {enroll_students}</p>
-        </div>
+        <Fade direction="up" delay={1e3} cascade damping={1e-1}>
+          <h2 className="card-title justify-center mt-4">{name}</h2>
+          <p>Instructor: {instructor_name}</p>
+          <div className="flex items-center justify-between">
+            <p>Available seats: {available_seats}</p>
+            <p>Enroll Students: {enroll_students}</p>
+          </div>
+        </Fade>
       </div>
       <div className="card-actions">
         <button

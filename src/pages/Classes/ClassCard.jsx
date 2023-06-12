@@ -7,7 +7,7 @@ import useAuth from "../../hooks/useAuth";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 const ClassCard = ({ data }) => {
-  const { image, name, available_seats, price, instructor_name } = data;
+  const { image, name, available_seats, enroll_students, price, instructor_name } = data;
   const { user } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
@@ -85,13 +85,16 @@ const ClassCard = ({ data }) => {
       <figure className="">
         <img src={image} alt="" />
         <FaVolleyballBall className="text-6xl absolute bottom-[160px] bg-white  mx-auto rounded-full text-purple-600 hover:text-green-800  border-8 border-white  " />
+        <div className="absolute top-0 right-0 text-xl py-2 px-4 bg-red-600 text-white  font-bold ">
+          Fee: ${price}
+        </div>
       </figure>
       <div className="card-body p-4">
         <h2 className="card-title justify-center mt-4">{name}</h2>
         <p>Instructor: {instructor_name}</p>
         <div className="flex items-center justify-between">
           <p>Available seats: {available_seats}</p>
-          <p>Fee: ${price}</p>
+          <p>Enroll Students: {enroll_students}</p>
         </div>
       </div>
       <div className="card-actions">

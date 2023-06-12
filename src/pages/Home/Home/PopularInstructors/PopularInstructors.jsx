@@ -1,5 +1,4 @@
 import React from "react";
-import useClasses from "../../../../hooks/useClasses";
 import SectionHeading from "../../../Shared/SectionHeading";
 import Instructor from "./Instructor";
 import useInstructors from "../../../../hooks/useInstructors";

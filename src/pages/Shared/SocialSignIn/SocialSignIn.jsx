@@ -12,8 +12,12 @@ const SocialSignIn = ({ setError }) => {
     googleLogin()
       .then((result) => {
         const loggedUser = result.user;
-        const user = { name: loggedUser.displayName, email: loggedUser.email };
-        fetch("https://summer-camp-school-server-kohl.vercel.app/users", {
+        const user = {
+          name: loggedUser.displayName,
+          email: loggedUser.email,
+          image: loggedUser.photoURL,
+        };
+        fetch("http://localhost:5000/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

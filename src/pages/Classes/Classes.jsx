@@ -14,9 +14,9 @@ const Classes = () => {
       ></PageBanner>
       <div className="w-11/12 md:w-10/12 mx-auto">
         <SectionHeading heading="Our Classes" subHeading="classes"></SectionHeading>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
           {classes.map((data) => (
-            <ClassCard key={data._id}  data={data}></ClassCard>
+            <ClassCard key={data._id} data={data}></ClassCard>
           ))}
         </div>
       </div>

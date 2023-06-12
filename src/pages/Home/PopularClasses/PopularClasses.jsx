@@ -5,7 +5,6 @@ import Classes from "./Classes";
 
 const PopularClasses = () => {
   const [classes] = useClasses();
-  console.log(classes);
   const popularClasses = classes.sort((a, b) => b.enroll_students - a.enroll_students).slice(0, 6);
   return (
     <div className="w-11/12 md:w-10/12 mx-auto">

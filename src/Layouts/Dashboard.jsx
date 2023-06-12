@@ -1,14 +1,18 @@
 import React from "react";
-import { FaCalendar, FaHome, FaShoppingCart, FaUsers, FaWallet } from "react-icons/fa";
+import {  FaHome } from "react-icons/fa";
 import { RiMenuUnfoldFill } from "react-icons/ri";
-import { GiConfirmed } from "react-icons/gi";
-import { BiSelectMultiple } from "react-icons/bi";
+import { GiConfirmed, GiTeacher, GiWallet } from "react-icons/gi";
+import { SiGoogleclassroom } from "react-icons/si";
+import { MdManageAccounts } from "react-icons/md";
 import { NavLink, Link, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
+import useAuth from "../hooks/useAuth";
+import { BsDatabaseFillAdd } from "react-icons/bs";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
+  const { user } = useAuth();
   const [isInstructor] = useInstructor();
   return (
     <div className="drawer lg:drawer-open">
@@ -24,16 +28,23 @@ const Dashboard = () => {
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
 
         <div className="menu p-4 w-80 h-full text-lg font-medium bg-[#A6C9FF]  text-base-content">
-          <div className="my-3 ms-2">
-            <span className=" text-lg  md:text-xl tracking-[0.16rem] font-bold ">
+          <div className="bg-white p-3 rounded mb-5">
+            <Link to="/" className=" text-lg  md:text-xl tracking-[0.16rem] font-bold ">
               SPORTS ACADEMIES
-            </span>
+            </Link>
+          </div>
+          <div className=" flex flex-col text-center mb-5">
+            <img
+              className="w-16 h-16 mx-auto rounded-full object-cover object-center"
+              src={user?.photoURL}
+              alt=""
+            />
+            <h3 className="text-2xl ">{user.displayName}</h3>
           </div>
           <ul>
             {/* Sidebar content here */}
             {isAdmin ? (
               <>
-                {" "}
                 <li>
                   <NavLink to="/dashboard/admin-home">
                     <FaHome /> Admin Home
@@ -41,17 +52,12 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink to="dashboard/manageclasses">
-                    <FaCalendar /> Manage Classes
+                    <SiGoogleclassroom /> Manage Classes
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="dashboard/manageusers">
-                    <FaWallet /> Manage Users
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="dashboard/alluser">
-                    <FaUsers /> All Users
+                    <MdManageAccounts /> Manage Users
                   </NavLink>
                 </li>
               </>
@@ -65,12 +71,12 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink to="dashboard/addclass">
-                    <FaCalendar /> Add a Class
+                    <BsDatabaseFillAdd /> Add a Class
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to="dashboard/myclasses">
-                    <FaHome /> My Classes
+                    <SiGoogleclassroom /> My Classes
                   </NavLink>
                 </li>
               </>
@@ -84,7 +90,7 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink to="/dashboard/bookedclass">
-                    <BiSelectMultiple /> My Selected Class
+                    <SiGoogleclassroom /> My Selected Class
                   </NavLink>
                 </li>
                 <li>
@@ -94,20 +100,27 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink to="dashboard/payment-history">
-                    <FaWallet /> Payment History
+                    <GiWallet /> Payment History
                   </NavLink>
                 </li>
               </>
             )}
             <div className="divider before:bg-white after:bg-white"></div>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">
+                {" "}
+                <FaHome /> Home
+              </Link>
             </li>
             <li>
-              <Link to="/instructors">Instructors</Link>
+              <Link to="/instructors">
+                <GiTeacher /> Instructors
+              </Link>
             </li>
             <li>
-              <Link to="/classes">Classes</Link>
+              <Link to="/classes">
+                <SiGoogleclassroom /> Classes
+              </Link>
             </li>
           </ul>
         </div>

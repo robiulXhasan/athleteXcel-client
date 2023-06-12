@@ -18,7 +18,7 @@ const Banner = () => {
           <h1 className="text-white text-2xl md:text-4xl font-semibold">
             Welcome to Summer Camp Sports Academies
           </h1>
-          <button className="btn bg-[#E39FF6] mt-4">Explore More</button>
+          <button className="btn bg-purple-600 text-white hover:text-black border-none mt-4">Book Now</button>
         </div>
       </div>
       <div
@@ -34,7 +34,7 @@ const Banner = () => {
           <h1 className="text-white text-4xl font-semibold">
             Welcome to Summer Camp Sports Academies
           </h1>
-          <button className="btn bg-[#E39FF6] mt-4">Explore More</button>
+          <button className="btn bg-purple-600 text-white hover:text-black border-none mt-4">Book Now</button>
         </div>
       </div>
       <div
@@ -50,7 +50,7 @@ const Banner = () => {
           <h1 className="text-white text-4xl font-semibold">
             Welcome to Summer Camp Sports Academies
           </h1>
-          <button className="btn bg-[#E39FF6] mt-4">Explore More</button>
+          <button className="btn bg-purple-600 text-white hover:text-black border-none mt-4">Book Now</button>
         </div>
       </div>
 
@@ -67,7 +67,7 @@ const Banner = () => {
           <h1 className="text-white text-4xl font-semibold">
             Welcome to Summer Camp Sports Academies
           </h1>
-          <button className="btn bg-[#E39FF6] mt-4">Explore More</button>
+          <button className="btn bg-purple-600 text-white hover:text-black border-none mt-4">Book Now</button>
         </div>
       </div>
       <div
@@ -83,7 +83,7 @@ const Banner = () => {
           <h1 className="text-white text-4xl font-semibold">
             Welcome to Summer Camp Sports Academies
           </h1>
-          <button className="btn bg-[#E39FF6] mt-4">Explore More</button>
+          <button className="btn bg-purple-600 text-white hover:text-black border-none mt-4">Book Now</button>
         </div>
       </div>
     </Carousel>

@@ -21,11 +21,13 @@ import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import StudentHome from "../pages/Dashboard/StudentHome/StudentHome";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import InstructorHome from "../pages/Dashboard/InstructorHome/InstructorHome";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -56,6 +58,7 @@ const router = createBrowserRouter([
         <Dashboard />
       </PrivateRoutes>
     ),
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/dashboard/student-home",

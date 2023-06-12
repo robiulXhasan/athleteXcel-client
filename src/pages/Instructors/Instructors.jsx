@@ -15,7 +15,7 @@ const Instructors = () => {
       />
       <div className="w-11/12 md:w-10/12 mx-auto mt-10">
         <SectionHeading heading="Our Instructors" subHeading="instructors"></SectionHeading>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {instructors.map((instructor) => (
             <InstructorCard key={instructor._id} instructor={instructor}></InstructorCard>
           ))}

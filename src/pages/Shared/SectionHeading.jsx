@@ -2,10 +2,12 @@ import React from "react";
 
 const SectionHeading = ({ heading, subHeading }) => {
   return (
-    <div className="relative flex items-center justify-center my-10">
+    <div className="relative flex items-center justify-center my-10  mx-auto p-5 bg-white">
       <h1
         style={{ WebkitTextStroke: "1px rgb(243, 235, 243)" }}
-        className=" uppercase text-white font-extrabold text-5xl md:text-7xl"
+        className="uppercase 
+          text-white
+        font-extrabold text-5xl md:text-7xl"
       >
         {subHeading}
       </h1>

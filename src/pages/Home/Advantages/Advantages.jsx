@@ -18,27 +18,38 @@ const Advantages = () => {
         }}
       >
         <div className="md:flex justify-between pt-10">
-          <div className="flex gap-3 items-center md:w-1/3 bg-gray-200  rounded-xl  p-2 shadow-xl  ">
-            <BsCheckCircleFill className="text-green-600 w-20 text-4xl" />
-            <div>
-              <h3 className="font-bold">Experienced Instructors</h3>
-              <p>Enjoy the personalized learning process and get the maximum out of it.</p>
+          <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" className="w-1/3">
+            <div className="flex gap-3 items-center  bg-gray-200  rounded-xl  p-2 shadow-xl  ">
+              <BsCheckCircleFill className="text-green-600 w-20 text-4xl" />
+              <div>
+                <h3 className="font-bold">Experienced Instructors</h3>
+                <p>Enjoy the personalized learning process and get the maximum out of it.</p>
+              </div>
             </div>
           </div>
+
           <div></div>
         </div>
         <div className="md:flex justify-between mt-10">
           <div></div>
-          <div className="flex gap-3 items-center md:w-1/3 bg-gray-200  rounded-xl  p-2 shadow-xl  ">
-            <BsCheckCircleFill className="text-green-600 w-20 text-4xl" />
-            <div>
-              <h3 className="font-bold">Convenient Location</h3>
-              <p>Find our courts in the friendly area easily and travel to play with no hassle.</p>
+          <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" className="md:w-1/3">
+            <div className="flex gap-3 items-center  bg-gray-200  rounded-xl  p-2 shadow-xl  ">
+              <BsCheckCircleFill className="text-green-600 w-20 text-4xl" />
+              <div>
+                <h3 className="font-bold">Convenient Location</h3>
+                <p>
+                  Find our courts in the friendly area easily and travel to play with no hassle.
+                </p>
+              </div>
             </div>
           </div>
         </div>
         <div className="md:flex justify-between pt-10">
-          <div className="flex gap-3 items-center md:w-1/3 bg-gray-200  rounded-xl  p-2 shadow-xl  ">
+          <div
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom"
+            className="flex gap-3 items-center md:w-1/3 bg-gray-200  rounded-xl  p-2 shadow-xl  "
+          >
             <BsCheckCircleFill className="text-green-600 w-20 text-4xl" />
             <div>
               <h3 className="font-bold">Flexible Scheduling</h3>
@@ -49,7 +60,11 @@ const Advantages = () => {
         </div>
         <div className="md:flex justify-between mt-10 pb-10">
           <div></div>
-          <div className="flex gap-3 items-center md:w-1/3 bg-gray-200  rounded-xl  p-2 shadow-xl  ">
+          <div
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom"
+            className="flex gap-3 items-center md:w-1/3 bg-gray-200  rounded-xl  p-2 shadow-xl  "
+          >
             <BsCheckCircleFill className="text-green-600 w-20 text-4xl" />
             <div>
               <h3 className="font-bold">Our Classes</h3>

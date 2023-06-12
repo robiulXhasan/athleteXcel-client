@@ -36,13 +36,13 @@ const StudentHome = () => {
   return (
     <div className="  min-h-screen min-w-full p-20">
       <h1 className="text-2xl font-bold mb-10">Hi, Welcome {user.displayName}</h1>
-      <div className="flex gap-4">
+      <div className="flex space-y-5 md:space-y-0 gap-4">
         <div className="bg-warning text-white text-center font-bold  px-20 py-12 rounded-xl shadow-xl">
-          <p className="text-4xl ">+{bookedClasses.length}</p>
+          <p className="text-4xl ">{bookedClasses.length}</p>
           <p className="text-2xl mt-4 "> Booked Class</p>
         </div>
         <div className="bg-green-600 text-white text-center font-bold  px-20 py-12 rounded-xl shadow-xl">
-          <p className="text-4xl ">+{enrolledClass.length}</p>
+          <p className="text-4xl ">{enrolledClass.length}</p>
           <p className="text-2xl mt-4 "> Enrolled Class</p>
         </div>
         <div className="bg-primary text-white text-center font-bold  px-20 py-12 rounded-xl shadow-xl">

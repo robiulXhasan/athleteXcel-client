@@ -4,10 +4,18 @@ import SectionHeading from "../../Shared/SectionHeading";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import useAuth from "../../../hooks/useAuth";
 
 const ManageClasses = () => {
   const [axiosSecure] = useAxiosSecure();
-  const [classes, refetch] = useClasses();
+  const { data: classes = [], refetch } = useQuery({
+    queryKey: ["classes"],
+    queryFn: async () => {
+      const res = await axiosSecure.get("/classes/allclasses");
+      return res.data;
+    },
+  });
   const handleStatus = (id, status) => {
     axiosSecure.patch(`/classes/${id}`, { status }).then((res) => {
       if (status === "Approved" && res.data.modifiedCount) {
